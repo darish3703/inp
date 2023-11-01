@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Accholder {
+            constructor(accnum, name, age, balance) {
+                this.accnum = accnum;
+                this.name = name;
+                this.age = age;
+                this.balance = balance;
+            }
+            
+            display() {
+                console.log("Account Number:", this.accnum);
+                console.log("Name:", this.name);
+                console.log("Age:", this.age);
+                console.log("Balance:", this.balance);
+                console.log();
+            }
+        }
+        
+        class Calculator {
+            constructor(length, width) {
+                this.length = length;
+                this.width = width;
+            }
+        }
+        
+        class RectArea extends Calculator {
+            constructor(length, width, radius) {
+                super(length, width);
+                this.radius = radius;
+            }
+            
+            calculateRectangleArea() {
+                return this.length * this.width;
+            }
+        }
+        
+        class CircleArea extends RectArea {
+            constructor(length, width, radius) {
+                super(length, width, radius);
+            }
+            
+            calculateCircleArea() {
+                return Math.PI * Math.pow(this.radius, 2);
+            }
+        }
+        
+        class CheckNum {
+            constructor(num1, num2) {
+                this.num1 = num1;
+                this.num2 = num2;
+            }
+        }
+        
+        class CheckNeonSpy extends CheckNum {
+            constructor(num1, num2) {
+                super(num1, num2);
+            }
+            
+            sumOfDigits(number) {
+                return number.toString().split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+            }
+            
+            productOfDigits(number) {
+                return number.toString().split('').reduce((product, digit) => product * parseInt(digit), 1);
+            }
+            
+            checkNeon() {
+                return this.sumOfDigits(this.num1 * this.num1) === this.num1;
+            }
+            
+            checkSpy() {
+                return this.sumOfDigits(this.num2) === this.productOfDigits(this.num2);
+            }
+        }
+
+        // Part (a) - Input for employee details
+        const accnum1 = parseInt(prompt("Enter Account Number for emp1:"));
+        const name1 = prompt("Enter Name for emp1:");
+        const age1 = parseInt(prompt("Enter Age for emp1:"));
+        const balance1 = parseFloat(prompt("Enter Balance for emp1:"));
+        const accnum2 = parseInt(prompt("Enter Account Number for emp2:"));
+        const name2 = prompt("Enter Name for emp2:");
+        const age2 = parseInt(prompt("Enter Age for emp2:"));
+        const balance2 = parseFloat(prompt("Enter Balance for emp2:"));
+
+        const emp1 = new Accholder(accnum1, name1, age1, balance1);
+        const emp2 = new Accholder(accnum2, name2, age2, balance2);
+
+        emp1.display();
+        emp2.display();
+
+        // Part (b) - Calculate Rectangle and Circle Area
+        const length = parseFloat(prompt("Enter Length:"));
+        const width = parseFloat(prompt("Enter Width:"));
+        const radius = parseFloat(prompt("Enter Radius for circle:"));
+
+        const rect = new RectArea(length, width, radius);
+        console.log("Rectangle Area:", rect.calculateRectangleArea());
+
+        const circle = new CircleArea(length, width, radius);
+        console.log("Circle Area:", circle.calculateCircleArea());
+
+        // Part (c) - Check Neon and Spy Numbers
+        const num1 = parseInt(prompt("Enter a number to check Neon:"));
+        const num2 = parseInt(prompt("Enter a number to check Spy:"));
+
+        const checkNeonSpy = new CheckNeonSpy(num1, num2);
+        console.log("Is", num1, "a neon number?", checkNeonSpy.checkNeon());
+        console.log("Is", num2, "a spy number?", checkNeonSpy.checkSpy());
+    </script>
+</body>
+</html>

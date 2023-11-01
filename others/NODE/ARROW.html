@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arrow Function Examples</title>
+</head>
+<body>
+<script>
+  // Arrow function to calculate average of an array of numbers
+  const calculateAverage = marks => {
+    const sum = marks.reduce((total, mark) => total + mark, 0);
+    return sum / marks.length;
+  };
+
+  // Arrow function to generate Fibonacci series
+  const generateFibonacciSeries = count => {
+    const series = [0, 1];
+    for (let i = 2; i < count; i++) {
+      series.push(series[i - 1] + series[i - 2]);
+    }
+    return series;
+  };
+
+  // Arrow function to check if a string is palindrome
+  const isPalindrome = str => {
+    const cleanStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+    const reversedStr = cleanStr.split('').reverse().join('');
+    return cleanStr === reversedStr;
+  };
+
+  // Main menu function
+  const mainMenu = () => {
+    const choice = parseInt(prompt(`Select an option:
+1. Calculate average of subject marks
+2. Generate Fibonacci series
+3. Check for palindrome
+4. Exit`));
+
+    switch (choice) {
+      case 1:
+        const marks = prompt("Enter subject marks separated by commas:").split(',').map(Number);
+        const average = calculateAverage(marks);
+        alert(`Average: ${average}`);
+        break;
+
+      case 2:
+        const count = parseInt(prompt("Enter the count of Fibonacci numbers to generate:"));
+        const fibonacciSeries = generateFibonacciSeries(count);
+        alert(`Fibonacci Series: ${fibonacciSeries.join(', ')}`);
+        break;
+
+      case 3:
+        const inputString = prompt("Enter a string:");
+        const palindromeResult = isPalindrome(inputString) ? "is" : "is not";
+        alert(`The entered string ${palindromeResult} a palindrome.`);
+        break;
+
+      case 4:
+        alert("Exiting the program.");
+        break;
+
+      default:
+        alert("Invalid choice.");
+        break;
+    }
+
+    if (choice !== 4) {
+      mainMenu(); // Show the menu again
+    }
+  };
+
+  // Start the program
+  mainMenu();
+</script>
+</body>
+</html>
