@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EXP6</title>
+  <script>
+//calculate the average of subject marks
+const calculateAverage = marks => {
+  const totalMarks = marks.reduce((sum, mark) => sum + mark, 0);
+  const average = totalMarks / marks.length;
+  return average;
+};
+
+//Fibonacci series
+const displayFibonacciSeries = num => {
+  let series = [0, 1];
+
+  for (let i = 2; i < num; i++) {
+    series[i] = series[i - 1] + series[i - 2];
+  }
+
+  return series;
+};
+
+//check whether a string is a palindrome or not
+const isPalindrome = str => {
+  const reversedStr = str.split('').reverse().join('');
+  return str === reversedStr;
+};
+
+//menu
+
+console.log('----- MENU -----');
+console.log('1. Calculate average of subject marks');
+console.log('2. Display Fibonacci series');
+console.log('3. Check if a string is a palindrome');
+console.log('4. Exit');
+
+const choice = parseInt(prompt('Enter your choice:'));
+
+switch (choice) {
+    case 1: {
+      const marks = prompt('Enter the subject marks (comma-separated):')
+        .split(',')
+        .map(mark => parseInt(mark.trim()));
+
+      const average = calculateAverage(marks);
+      console.log('choice: ', choice);
+      console.log('marks:', marks);
+      console.log('Average:', average);
+      break;
+    }
+    case 2: {
+      const num = parseInt(prompt('Enter the number of Fibonacci series elements:'));
+      const series = displayFibonacciSeries(num);
+      console.log('choice: ', choice);
+      console.log('num: ', num);
+      console.log('Fibonacci Series:', series.join(', '));
+      break;
+    }
+    case 3: {
+      const str = prompt('Enter a string:');
+      const palindrome = isPalindrome(str);
+      console.log('choice: ', choice);
+      console.log('String: ',str)
+      console.log('Is Palindrome:', palindrome);
+      break;
+    }
+    case 4: {
+      console.log('Exiting...');
+      break;
+    }
+    default: {
+      console.log('Invalid choice! Please try again.');
+      break;
+    }
+  }
+  </script>
+</head>
+<body>
+</body>
+</html>
