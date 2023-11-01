@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EXP7</title>
+  <script>
+    class Accholder {
+      constructor(accnum, name, age, balance) {
+        this.accnum = accnum;
+        this.name = name;
+        this.age = age;
+        this.balance = balance;
+  }
+
+  display() {
+    console.log("Account Number:", this.accnum);
+    console.log("Name:", this.name);
+    console.log("Age:", this.age);
+    console.log("Balance:", this.balance);
+  }
+}
+
+class Calculator {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+}
+
+class RectArea extends Calculator {
+  constructor(length, width) {
+    super(length, width);
+  }
+
+  calculateArea() {
+    return this.length * this.width;
+  }
+}
+
+class CircleArea extends RectArea {
+  constructor(radius) {
+    super(radius, radius);
+    this.radius = radius;
+  }
+
+  calculateArea() {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+class CheckNum {
+            constructor(num1, num2) {
+                this.num1 = num1;
+                this.num2 = num2;
+            }
+        }
+
+class CheckNeonSpy extends CheckNum {
+            constructor(num1, num2) {
+                super(num1, num2);
+            }
+
+            checkNeon() {
+                const square = this.num1 * this.num1;
+                const sumOfDigits = Array.from(square.toString()).reduce((acc, digit) => acc + parseInt(digit), 0);
+                return sumOfDigits === this.num1;
+            }
+
+            checkSpy() {
+                const productOfDigits = Array.from(this.num2.toString()).reduce((acc, digit) => acc * parseInt(digit), 1);
+                const sumOfDigits = Array.from(this.num2.toString()).reduce((acc, digit) => acc + parseInt(digit), 0);
+                return sumOfDigits === productOfDigits;
+            }
+        }
+
+function checkNeonNumber() {
+    const num = parseInt(prompt('Enter a number to check if it is a neon number:'));            
+    const checkNum = new CheckNeonSpy(num, 0);            
+    const isNeon = checkNum.checkNeon();            
+    if (isNeon) {                
+      console.log(`${num} is a neon number.`);            
+    } else {                
+      console.log(`${num} is not a neon number.`);
+    }            
+      console.log('--------------------------');       
+}        
+
+function checkSpyNumber() { 
+    const num = parseInt(prompt('Enter a number to check if it is a spy number:'));            
+    const checkNum = new CheckNeonSpy(0, num);            
+    const isSpy = checkNum.checkSpy();            
+    if (isSpy) {
+      console.log(`${num} is a spy number.`);            
+        } else {                
+          console.log(`${num} is not a spy number.`);            
+        }            
+          console.log('--------------------------');       
+ }
+                         
+// Menu-driven program
+  console.log("----- Menu -----");
+  console.log("1. Print details of employees");
+  console.log("2. Calculate and display area of a rectangle");
+  console.log("3. Calculate and display area of a circle");
+  console.log("4. Check if numbers are Neon and Spy");
+  console.log("5. Exit");
+
+  const choice = parseInt(prompt("Enter your choice:"));
+
+  switch (choice) {
+    case 1:
+      console.log('choice= ', choice);
+      printEmployeeDetails();
+      break;
+    case 2:
+      console.log('choice= ', choice);
+      calculateRectangleArea();
+      break;
+    case 3:
+      console.log('choice= ', choice);
+      calculateCircleArea();
+      break;
+    case 4:
+      console.log('choice= ', choice);
+      checkNeonNumber();
+      checkSpyNumber();
+      break;
+    case 5:
+      
+      console.log("Exiting...");
+      break;
+    default:
+      console.log("Invalid choice. Please try again.");
+  }
+
+
+function printEmployeeDetails() {
+  var accnum= prompt("Enter Account number:");
+  var name= prompt("Enter Name:");
+  var age= prompt("Enter Age:");
+  var sal= prompt("Enter Salary:");
+  const employee1 = new Accholder(accnum,name,age,sal);
+  var accnum= prompt("Enter Account number:");
+  var name= prompt("Enter Name:");
+  var age= prompt("Enter Age:");
+  var sal= prompt("Enter Salary:");
+  const employee2 = new Accholder(accnum,name,age,sal);
+
+  console.log("Employee 1 Details:");
+  employee1.display();
+
+  console.log("\nEmployee 2 Details:");
+  employee2.display();
+
+}
+
+function calculateRectangleArea() {
+  const length = parseFloat(prompt("Enter the length of the rectangle:"));
+  const width = parseFloat(prompt("Enter the width of the rectangle:"));
+
+  const rectangle = new RectArea(length, width);
+  const area = rectangle.calculateArea();
+
+  console.log('length: ',length);
+  console.log('width: ',width);
+  console.log("Area of the rectangle:", area);
+
+}
+
+function calculateCircleArea() {
+  const radius = parseFloat(prompt("Enter the radius of the circle:"));
+
+  const circle = new CircleArea(radius);
+  const area = circle.calculateArea();
+
+  console.log('radius: ',radius);
+  console.log("Area of the circle:", Math.ceil(area));
+
+}
+
+function checkNeonAndSpy() {
+  const num1 = parseInt(prompt("Enter the first number:"));
+  const num2 = parseInt(prompt("Enter the second number:"));
+
+  const checkNum = new CheckNeonSpy(num1, num2);
+
+  console.log("Checking Neon Number: ",num1);
+  checkNum.checkNeon();
+
+  console.log("\nChecking Spy Number:");
+  checkNum.checkSpy();
+
+}
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
