@@ -1,0 +1,150 @@
+<html>
+   
+        <body>
+            <script>
+                function findGreatest() {
+  const num1 = parseFloat(prompt("Enter the first number:"));
+  const num2 = parseFloat(prompt("Enter the second number:"));
+  const num3 = parseFloat(prompt("Enter the third number:"));
+
+
+  if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
+    const greatest = Math.max(num1, num2, num3);
+    console.log(`The greatest number among ${num1}, ${num2}, and ${num3} is ${greatest}`);
+  } else {
+    console.log("Invalid input. Please enter valid numbers.");
+  }
+}
+
+
+function displayEvenNumbers() {
+  console.log("Even numbers less than 20:");
+  for (let i = 2; i < 20; i += 2) {
+    console.log(i);
+  }
+}
+
+
+function calculateTriangleArea() {
+  const base = parseFloat(prompt("Enter the base of the triangle:"));
+  const height = parseFloat(prompt("Enter the height of the triangle:"));
+
+
+  if (!isNaN(base) && !isNaN(height)) {
+    const area = 0.5 * base * height;
+    console.log(`The area of the triangle is ${area}`);
+  } else {
+    console.log("Invalid input. Please enter valid numbers for the base and height.");
+  }
+}
+
+
+function isLeapYear() {
+  const year = parseInt(prompt("Enter a year:"));
+
+
+  if (!isNaN(year)) {
+    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+      console.log(`${year} is a leap year.`);
+    } else {
+      console.log(`${year} is not a leap year.`);
+    }
+  } else {
+    console.log("Invalid input. Please enter a valid year.");
+  }
+}
+
+
+function displayTable() {
+  const n = parseInt(prompt("Enter a number to display its table:"));
+
+
+  if (!isNaN(n)) {
+    console.log(`Table of ${n}:`);
+    for (let i = 1; i <= 10; i++) {
+      console.log(`${n} x ${i} = ${n * i}`);
+    }
+  } else {
+    console.log("Invalid input. Please enter a valid number.");
+  }
+}
+
+
+function isPerfectNumber() {
+  const number = parseInt(prompt("Enter a number to check if it's a perfect number:"));
+
+
+  if (!isNaN(number) && number > 1) {
+    let sum = 1;
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+      if (number % i === 0) {
+        sum += i;
+        if (i !== number / i) {
+          sum += number / i;
+        }
+      }
+    }
+    if (sum === number) {
+      console.log(`${number} is a perfect number.`);
+    } else {
+      console.log(`${number} is not a perfect number.`);
+    }
+  } else {
+    console.log("Invalid input. Please enter a valid number greater than 1.");
+  }
+}
+
+
+function menu() {
+  while (true) {
+    console.log("Menu:");
+    console.log("1. Find the greatest among three numbers");
+    console.log("2. Display even numbers less than 20");
+    console.log("3. Calculate the area of a triangle");
+    console.log("4. Check if a year is a leap year");
+    console.log("5. Display a table of a number");
+    console.log("6. Check if a number is a perfect number");
+    console.log("7. Exit");
+
+
+    const choice = parseInt(prompt("Enter your choice:"));
+
+
+    switch (choice) {
+      case 1:
+        findGreatest();
+        break;
+      case 2:
+        displayEvenNumbers();
+        break;
+      case 3:
+        calculateTriangleArea();
+        break;
+      case 4:
+        isLeapYear();
+        break;
+      case 5:
+        displayTable();
+        break;
+      case 6:
+        isPerfectNumber();
+        break;
+      case 7:
+        return;
+      default:
+        console.log("Invalid choice. Please select a valid option.");
+    }
+  }
+}
+
+
+menu();
+
+
+            </script>
+            </body>
+ 
+ 
+
+
+</html>

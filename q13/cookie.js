@@ -12,7 +12,7 @@ app.get("/",(req,res)=>{
 app.get("/get",(req,res)=>{
     const Name = req.cookies.Name;
 
-    if (username) {
+    if (Name) {
       res.send(`Name: ${Name}`);
     } else {
       res.send('No username cookie found.');

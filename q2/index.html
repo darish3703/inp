@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SFIT Courses</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+}
+
+
+.container {
+width: 500px;
+margin: 0 auto;
+padding: 25px;
+background-color: #f5f5f5;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+
+h2 {
+text-align: center;
+}
+
+
+label {
+/* display: block; */
+margin-bottom: 5px;
+}
+
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+
+input[type="file"] {
+margin-bottom: 15px;
+}
+
+
+input[type="submit"] {
+background-color: #4CAF50;
+color: white;
+cursor: pointer;
+}
+
+
+.form-group input[type="submit"]:hover {
+background-color: #6fc973;
+}
+
+
+.form-group input[type="submit"] {
+background-color: #4CAF50;
+color: #fff;
+cursor: pointer;
+border-radius: 15px;
+width: 100%;
+padding: 8px;
+border: 1px solid #ccc;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>SFIT Course Registration Form</h2>
+<form action="confirmation.html">
+<div>
+<label for="firstName">First Name:</label>
+<input type="text" id="firstName" name="firstName" required>
+</div>
+<div>
+<label for="lastName">Last Name:</label>
+<input type="text" id="lastName" name="lastName" required>
+</div>
+<div>
+<label>Gender:</label>
+<input type="radio" id="male" name="gender" value="male" required>
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="female">
+<label for="female">Female</label>
+<input type="radio" id="other" name="gender" value="other">
+<label for="other">Other</label>
+</div><br>
+<div>
+<label for="age">Age:</label>
+<input type="number" id="age" name="age" required>
+</div><br>
+<div>
+<label for="birthdate">Birth Date:</label>
+<input type="date" id="birthdate" name="birthdate" required>
+</div>
+<div>
+<label for="address">Address:</label>
+<textarea id="address" name="address" rows="4" required></textarea>
+</div>
+<div>
+<label for="previousSchool">Previous College:</label>
+<select id="previousSchool" name="previousSchool" required>
+<option value="">Select</option>
+<option value="college">Viva College</option>
+<option value="school">Vartak College</option>
+</select>
+</div>
+<div>
+<label for="marks">Marks Obtained:</label>
+<input type="number" id="marks" name="marks" required>
+</div><br>
+<div>
+<label for="certificate">Passing Certificate:</label>
+<input type="file" id="certificate" name="certificate" required>
+</div>
+<div>
+<label>Courses:</label>
+<input type="checkbox" id="it" name="courses" value="IT">
+<label for="it">IT</label>
+<input type="checkbox" id="comps" name="courses" value="Comps">
+<label for="comps">Comps</label>
+<input type="checkbox" id="electrical" name="courses" value="Electrical">
+<label for="electrical">Electrical</label>
+<input type="checkbox" id="extc" name="courses" value="EXTC">
+<label for="extc">EXTC</label>
+<input type="checkbox" id="mech" name="courses" value="Mech">
+<label for="mech">Mech</label>
+</div>
+<div class="form-group">
+<input type="submit" value="Register">
+</div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+.head{
+    display:flex;
+ }
+    .Name{
+        color:green;
+        background-color: lightgrey;
+        border: 15px solid blue;
+        padding: 20px;
+        margin: 20px;
+        text-align:center;
+        width: 100%;
+    }
+
+    .image-section {
+            display: flex;
+    }
+
+    .image-container {
+        background-color: lightblue;
+        object-fit: cover;
+        border: 2px solid;
+        
+        }
+    .section2 {
+        display: flex;
+        max-width: 700px;
+        height: 500px;
+        background-color: rgb(6, 85, 55);
+        border: 2px solid red;
+    }
+    .img {
+        align-self: center;
+
+    }
+
+    .center {
+        border: 5px solid peru;
+        text-align: center;
+      }
+
+      .center_image {
+        text-align: center;
+      }
+      .description{
+        font-size: 28px;
+      }
+
+    .td img{
+        height: 150px;
+        width: 250px;
+    }
+
+    .table{
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+
+    .links{
+        display: flex;
+        list-style-type: none;
+    }
+
+    .links li{
+        margin: 15px;
+    }
